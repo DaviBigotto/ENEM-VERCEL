@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz ENEM: Descubra Como Melhorar Sua Redação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                borderRadius: {
+                    lg: "var(--radius)",
+                    md: "calc(var(--radius) - 2px)",
+                    sm: "calc(var(--radius) - 4px)",
+                },
+                colors: {
+                    background: "var(--background)",
+                    foreground: "var(--foreground)",
+                    card: {
+                        DEFAULT: "var(--card)",
+                        foreground: "var(--card-foreground)",
+                    },
+                    primary: {
+                        DEFAULT: "var(--primary)",
+                        foreground: "var(--primary-foreground)",
+                    },
+                    secondary: {
+                        DEFAULT: "var(--secondary)",
+                        foreground: "var(--secondary-foreground)",
+                    },
+                    muted: {
+                        DEFAULT: "var(--muted)",
+                        foreground: "var(--muted-foreground)",
+                    },
+                    accent: {
+                        DEFAULT: "var(--accent)",
+                        foreground: "var(--accent-foreground)",
+                    },
+                    success: {
+                        DEFAULT: "var(--success)",
+                        foreground: "var(--success-foreground)",
+                    },
+                    border: "var(--border)",
+                    ring: "var(--ring)",
+                },
+                fontFamily: {
+                    sans: ["Inter", "system-ui", "sans-serif"],
+                },
+                animation: {
+                    'fade-in': 'fadeIn 0.5s ease-in-out',
+                    'slide-in': 'slideIn 0.4s ease-out',
+                    'pulse-slow': 'pulse 3s infinite',
+                }
+            },
+        }
+    };
+    </script>
+    <style>
+        :root {
+            --background: hsl(210 40% 98%);
+            --foreground: hsl(222 84% 5%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222 84% 5%);
+            --primary: hsl(221 83% 53%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(210 40% 96%);
+            --secondary-foreground: hsl(222 84% 5%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215 16% 47%);
+            --accent: hsl(142 76% 36%);
+            --accent-foreground: hsl(210 40% 98%);
+            --success: hsl(142 76% 36%);
+            --success-foreground: hsl(210 40% 98%);
+            --border: hsl(214 32% 91%);
+            --ring: hsl(221 83% 53%);
+            --radius: 0.75rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .question-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .option-button {
+            transition: all 0.2s ease;
+            border: 2px solid var(--border);
+        }
+
+        .option-button:hover {
+            border-color: var(--primary);
+            background-color: hsl(221 83% 53% / 0.05);
+            transform: translateY(-2px);
+        }
+
+        .option-button.selected {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            transition: width 0.5s ease-in-out;
+        }
+
+        .cta-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background text-foreground font-sans">
+    <div class="min-h-screen py-8 px-4">
+        <!-- @COMPONENT: QuizApp -->
+        <div class="quiz-container">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-muted-foreground" id="progress-text">Pergunta 1 de 5</span>
+                    <span class="text-sm text-muted-foreground" id="progress-percentage">20%</span>
+                </div>
+                <div class="w-full bg-muted rounded-full h-3">
+                    <div class="progress-bar h-3 rounded-full" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="question-card p-8 text-center animate-fade-in">
+                <div class="mb-6">
+                    <i class="fas fa-graduation-cap text-6xl text-primary mb-4"></i>
+                    <h1 class="text-3xl font-bold text-foreground mb-4">
+                        Quer aumentar sua nota na redação do ENEM?
+                    </h1>
+                    <p class="text-lg text-muted-foreground mb-6">
+                        Responda este quiz rápido e descubra como melhorar hoje mesmo! 
+                        São apenas 5 perguntas que vão te ajudar a identificar seus pontos de melhoria.
+                    </p>
+                </div>
+                
+                <div class="bg-secondary p-6 rounded-lg mb-6">
+                    <div class="flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-accent mr-2"></i>
+                        <span class="text-sm font-medium">Tempo estimado: 2 minutos</span>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-users text-accent mr-2"></i>
+                        <span class="text-sm font-medium">+5.000 estudantes já melhoraram suas notas</span>
+                    </div>
+                </div>
+
+                <button onclick="startQuiz()" class="cta-gradient text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                    <i class="fas fa-play mr-2"></i>
+                    Começar Quiz Agora
+                </button>
+            </div>
+
+            <!-- Question Screens -->
+            <div id="question-1" class="question-card p-8 hidden animate-slide-in">
+                <h2 class="text-2xl font-bold mb-6 text-center">
+                    Qual é a sua maior dificuldade na redação do ENEM?
+                </h2>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="organizacao" onclick="selectOption(this, 1)">
+                        <i class="fas fa-list-ul mr-3 text-primary"></i>
+                        Organização de ideias
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="argumentacao" onclick="selectOption(this, 1)">
+                        <i class="fas fa-comments mr-3 text-primary"></i>
+                        Argumentação
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="gramatica" onclick="selectOption(this, 1)">
+                        <i class="fas fa-spell-check mr-3 text-primary"></i>
+                        Gramática
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="coesao" onclick="selectOption(this, 1)">
+                        <i class="fas fa-link mr-3 text-primary"></i>
+                        Coesão e Coerência
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="repertorio" onclick="selectOption(this, 1)">
+                        <i class="fas fa-book mr-3 text-primary"></i>
+                        Falta de repertório
+                    </button>
+                </div>
+                <button id="next-1" class="hidden bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold mt-6 w-full hover:bg-accent/90 transition-colors" onclick="nextQuestion(2)">
+                    Próxima Pergunta <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <div id="question-2" class="question-card p-8 hidden animate-slide-in">
+                <h2 class="text-2xl font-bold mb-6 text-center">
+                    Você costuma planejar seu texto antes de escrever?
+                </h2>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="sempre" onclick="selectOption(this, 2)">
+                        <i class="fas fa-check-circle mr-3 text-success"></i>
+                        Sempre - Eu sempre faço um rascunho
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="as-vezes" onclick="selectOption(this, 2)">
+                        <i class="fas fa-clock mr-3 text-amber-500"></i>
+                        Às vezes - Depende do tempo disponível
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="nunca" onclick="selectOption(this, 2)">
+                        <i class="fas fa-times-circle mr-3 text-red-500"></i>
+                        Nunca - Vou escrevendo direto
+                    </button>
+                </div>
+                <button id="next-2" class="hidden bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold mt-6 w-full hover:bg-accent/90 transition-colors" onclick="nextQuestion(3)">
+                    Próxima Pergunta <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <div id="question-3" class="question-card p-8 hidden animate-slide-in">
+                <h2 class="text-2xl font-bold mb-6 text-center">
+                    Quanto tempo você dedica ao treino de redação por semana?
+                </h2>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="mais-3h" onclick="selectOption(this, 3)">
+                        <i class="fas fa-fire mr-3 text-red-500"></i>
+                        Mais de 3 horas - Treino bastante
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="1-3h" onclick="selectOption(this, 3)">
+                        <i class="fas fa-clock mr-3 text-amber-500"></i>
+                        Entre 1 e 3 horas - Treino moderado
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="menos-1h" onclick="selectOption(this, 3)">
+                        <i class="fas fa-hourglass-half mr-3 text-blue-500"></i>
+                        Menos de 1 hora - Treino pouco
+                    </button>
+                </div>
+                <button id="next-3" class="hidden bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold mt-6 w-full hover:bg-accent/90 transition-colors" onclick="nextQuestion(4)">
+                    Próxima Pergunta <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <div id="question-4" class="question-card p-8 hidden animate-slide-in">
+                <h2 class="text-2xl font-bold mb-6 text-center">
+                    Você já se sentiu inseguro(a) ao escrever sua redação?
+                </h2>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="sempre-inseguro" onclick="selectOption(this, 4)">
+                        <i class="fas fa-frown mr-3 text-red-500"></i>
+                        Sim, sempre - Fico muito nervoso(a)
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="algumas-vezes" onclick="selectOption(this, 4)">
+                        <i class="fas fa-meh mr-3 text-amber-500"></i>
+                        Sim, algumas vezes - Depende do tema
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="nunca-inseguro" onclick="selectOption(this, 4)">
+                        <i class="fas fa-smile mr-3 text-success"></i>
+                        Não - Me sinto confiante
+                    </button>
+                </div>
+                <button id="next-4" class="hidden bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold mt-6 w-full hover:bg-accent/90 transition-colors" onclick="nextQuestion(5)">
+                    Próxima Pergunta <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <div id="question-5" class="question-card p-8 hidden animate-slide-in">
+                <h2 class="text-2xl font-bold mb-6 text-center">
+                    Qual seria o maior benefício de ter um guia passo a passo para a redação?
+                </h2>
+                <div class="space-y-4">
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="aumentar-nota" onclick="selectOption(this, 5)">
+                        <i class="fas fa-chart-line mr-3 text-success"></i>
+                        Aumentar minha nota no ENEM
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="ter-confianca" onclick="selectOption(this, 5)">
+                        <i class="fas fa-shield-alt mr-3 text-blue-500"></i>
+                        Ter mais confiança na hora da prova
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="tecnicas" onclick="selectOption(this, 5)">
+                        <i class="fas fa-tools mr-3 text-purple-500"></i>
+                        Aprender técnicas eficazes
+                    </button>
+                    <button class="option-button w-full p-4 rounded-lg text-left" data-value="economizar-tempo" onclick="selectOption(this, 5)">
+                        <i class="fas fa-clock mr-3 text-amber-500"></i>
+                        Economizar tempo de estudo
+                    </button>
+                </div>
+                <button id="next-5" class="hidden bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold mt-6 w-full hover:bg-accent/90 transition-colors" onclick="showResults()">
+                    Ver Meu Resultado <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="question-card p-8 hidden animate-fade-in">
+                <div class="text-center mb-8">
+                    <i class="fas fa-check-circle text-6xl text-success mb-4"></i>
+                    <h2 class="text-3xl font-bold mb-4">Quiz Concluído! 🎉</h2>
+                </div>
+
+                <div class="bg-secondary p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Seu Perfil Personalizado:</h3>
+                    <div id="personalized-message" class="text-muted-foreground"></div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg mb-6 border border-border">
+                    <h3 class="text-xl font-semibold mb-4 text-center">
+                        <i class="fas fa-book-open mr-2 text-primary"></i>
+                        Ebook Redação Expert ENEM
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-success mt-1 mr-3"></i>
+                            <span class="text-sm">Técnicas comprovadas de organização</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-success mt-1 mr-3"></i>
+                            <span class="text-sm">Exemplos práticos de redações nota 1000</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-success mt-1 mr-3"></i>
+                            <span class="text-sm">Guia completo de argumentação</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-check text-success mt-1 mr-3"></i>
+                            <span class="text-sm">Checklist para revisão final</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Section -->
+                <div class="text-center mb-6">
+                    <div class="flex items-center justify-center mb-4">
+                        <span class="text-2xl text-muted-foreground line-through mr-3">R$ 97,00</span>
+                        <span class="text-4xl font-bold text-success">R$ 47,00</span>
+                    </div>
+                    <div class="flex items-center justify-center text-sm text-amber-600 bg-amber-50 px-4 py-2 rounded-lg border border-amber-200">
+                        <i class="fas fa-clock mr-2"></i>
+                        Oferta especial válida por tempo limitado!
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <button onclick="purchaseEbook()" class="cta-gradient text-white px-8 py-4 rounded-lg font-bold text-lg w-full hover:shadow-lg transition-all duration-300 hover:scale-105 animate-pulse-slow">
+                    <i class="fas fa-download mr-2"></i>
+                    QUERO MEU EBOOK AGORA - R$ 47,00
+                </button>
+
+                <div class="mt-6 text-center">
+                    <div class="flex items-center justify-center text-sm text-muted-foreground mb-2">
+                        <i class="fas fa-shield-alt mr-2 text-success"></i>
+                        Pagamento 100% seguro
+                    </div>
+                    <div class="flex items-center justify-center text-sm text-muted-foreground">
+                        <i class="fas fa-undo-alt mr-2 text-success"></i>
+                        Garantia de 7 dias ou seu dinheiro de volta
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials Section (shown after results) -->
+            <div id="testimonials" class="mt-8 hidden">
+                <h3 class="text-2xl font-bold text-center mb-6">O que nossos estudantes dizem:</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-card p-6 rounded-lg border border-border">
+                        <div class="flex mb-4">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                        <p class="text-muted-foreground mb-4">"Consegui passar de 600 para 920 na redação! As técnicas são realmente eficazes."</p>
+                        <div class="font-semibold">- Maria S., aprovada na USP</div>
+                    </div>
+                    <div class="bg-card p-6 rounded-lg border border-border">
+                        <div class="flex mb-4">
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                            <i class="fas fa-star text-amber-400"></i>
+                        </div>
+                        <p class="text-muted-foreground mb-4">"O ebook me deu a confiança que eu precisava. Agora escrevo sem medo!"</p>
+                        <div class="font-semibold">- João P., aprovado na UFMG</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: QuizApp -->
+    </div>
+
+    <script>
+        // Quiz state management
+        let currentQuestion = 0;
+        let answers = {};
+        
+        (function() {
+            function updateProgress(questionNum) {
+                const progress = (questionNum / 5) * 100;
+                document.getElementById('progress-bar').style.width = progress + '%';
+                document.getElementById('progress-text').textContent = `Pergunta ${questionNum} de 5`;
+                document.getElementById('progress-percentage').textContent = Math.round(progress) + '%';
+            }
+
+            function startQuiz() {
+                document.getElementById('welcome-screen').classList.add('hidden');
+                document.getElementById('question-1').classList.remove('hidden');
+                updateProgress(1);
+                currentQuestion = 1;
+            }
+
+            function selectOption(button, questionNum) {
+                // Remove selected class from all options in this question
+                const questionDiv = document.getElementById(`question-${questionNum}`);
+                const allOptions = questionDiv.querySelectorAll('.option-button');
+                allOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                button.classList.add('selected');
+                
+                // Store answer
+                answers[`question${questionNum}`] = button.dataset.value;
+                
+                // Show next button
+                document.getElementById(`next-${questionNum}`).classList.remove('hidden');
+            }
+
+            function nextQuestion(questionNum) {
+                // Hide current question
+                document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
+                
+                // Show next question
+                document.getElementById(`question-${questionNum}`).classList.remove('hidden');
+                
+                currentQuestion = questionNum;
+                updateProgress(questionNum);
+            }
+
+            function generatePersonalizedMessage() {
+                let message = "Baseado nas suas respostas, ";
+                
+                // Analyze main difficulty
+                const difficulty = answers.question1;
+                switch(difficulty) {
+                    case 'organizacao':
+                        message += "percebo que sua maior dificuldade é <strong>organizar ideias</strong>. ";
+                        break;
+                    case 'argumentacao':
+                        message += "vejo que você precisa melhorar sua <strong>argumentação</strong>. ";
+                        break;
+                    case 'gramatica':
+                        message += "identifiquei que a <strong>gramática</strong> é seu principal desafio. ";
+                        break;
+                    case 'coesao':
+                        message += "percebi que <strong>coesão e coerência</strong> são seus pontos de atenção. ";
+                        break;
+                    case 'repertorio':
+                        message += "vejo que você precisa desenvolver seu <strong>repertório cultural</strong>. ";
+                        break;
+                }
+
+                // Add planning insight
+                if (answers.question2 === 'nunca') {
+                    message += "Também notei que você não costuma planejar antes de escrever, o que pode estar limitando seu desempenho. ";
+                } else if (answers.question2 === 'as-vezes') {
+                    message += "Vi que você às vezes planeja seu texto - com as técnicas certas, isso pode se tornar um hábito poderoso. ";
+                }
+
+                // Add training insight
+                if (answers.question3 === 'menos-1h') {
+                    message += "Com menos de 1 hora de treino semanal, você tem muito potencial de melhoria! ";
+                }
+
+                message += "<br><br>Nosso ebook foi desenvolvido especialmente para estudantes como você, com <strong>técnicas práticas e comprovadas</strong> que já ajudaram milhares de alunos a conquistarem notas acima de 900 na redação do ENEM!";
+                
+                return message;
+            }
+
+            function showResults() {
+                // Hide current question
+                document.getElementById(`question-${currentQuestion}`).classList.add('hidden');
+                
+                // Update progress to 100%
+                updateProgress(5);
+                
+                // Generate and show personalized message
+                const personalizedMessage = generatePersonalizedMessage();
+                document.getElementById('personalized-message').innerHTML = personalizedMessage;
+                
+                // Show results screen
+                document.getElementById('results-screen').classList.remove('hidden');
+                document.getElementById('testimonials').classList.remove('hidden');
+                
+                // TODO: Analytics tracking for quiz completion
+                console.log('Quiz completed with answers:', answers);
+            }
+
+            function purchaseEbook() {
+                // TODO: Integrate with payment system
+                alert('Redirecionando para o checkout seguro...\n\nEm um sistema real, aqui seria integrado com plataformas como PagSeguro, Mercado Pago ou Stripe.');
+                console.log('Purchase initiated with user answers:', answers);
+            }
+
+            // Make functions globally available
+            window.startQuiz = startQuiz;
+            window.selectOption = selectOption;
+            window.nextQuestion = nextQuestion;
+            window.showResults = showResults;
+            window.purchaseEbook = purchaseEbook;
+        })();
+    </script>
+</body>
+</html>
