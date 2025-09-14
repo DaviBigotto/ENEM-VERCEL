@@ -1,0 +1,36 @@
+Crie uma **página de vendas em formato quiz interativo** para vender um **ebook com dicas de redação do ENEM**. A página deve:  
+- Fazer perguntas persuasivas para descobrir as dificuldades do usuário na redação.  
+- Educar e engajar o usuário durante o quiz, mostrando que o produto final (ebook) vai ajudá-lo a melhorar suas notas.  
+- Conduzir o usuário até o CTA (call-to-action) final, incentivando a compra do ebook.  
+
+### Estrutura do Quiz:
+
+1. **Boas-vindas / Introdução**
+- Mensagem inicial convidativa: “Quer aumentar sua nota na redação do ENEM? Responda este quiz rápido e descubra como melhorar hoje mesmo!”  
+- Tom motivador e amigável.
+
+2. **Perguntas do quiz (persuasivas)**
+- Pergunta 1: “Qual é a sua maior dificuldade na redação do ENEM?”  
+  - Opções: Organização de ideias, Argumentação, Gramática, Coesão e Coerência, Falta de repertório.  
+- Pergunta 2: “Você costuma planejar seu texto antes de escrever?”  
+  - Opções: Sempre, Às vezes, Nunca.  
+- Pergunta 3: “Quanto tempo você dedica ao treino de redação por semana?”  
+  - Opções: Mais de 3h, 1-3h, Menos de 1h.  
+- Pergunta 4: “Você já se sentiu inseguro(a) ao escrever sua redação?”  
+  - Opções: Sim, Sempre; Sim, Algumas vezes; Não.  
+- Pergunta 5: “Qual seria o maior benefício de ter um guia passo a passo para a redação?”  
+  - Opções: Aumentar minha nota, Ter confiança, Aprender técnicas eficazes, Economizar tempo de estudo.  
+
+3. **Mensagem de transição (antes do CTA)**
+- Após responder, mostrar uma mensagem personalizada que reflita as respostas:  
+  - Exemplo: “Percebi que sua maior dificuldade é organizar ideias e planejar o texto. Nosso ebook foi feito exatamente para ajudar estudantes como você a dominar essas técnicas e ganhar confiança na hora da redação!”
+
+4. **Call-to-Action (CTA)**
+- Texto persuasivo para compra do ebook:  
+  - “Clique no botão abaixo e receba agora o seu **Ebook Redação Expert ENEM** com dicas práticas, exemplos de redação e técnicas que garantem aumento de nota!”  
+
+### Instruções adicionais:
+- O quiz deve ser interativo e divertido, mantendo o usuário engajado até o final.  
+- O tom deve ser amigável, motivador e persuasivo, mostrando autoridade e resultado.  
+- Cada pergunta deve ajudar o usuário a **perceber sua necessidade** e preparar o terreno para a compra do ebook.  
+- No final, mostrar **benefícios claros e urgência leve**, incentivando a ação imediata.

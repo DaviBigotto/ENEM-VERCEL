@@ -1,0 +1,47 @@
+2025-09-14T16:26:59.410166573Z ==> Cloning from https://github.com/DaviBigotto/enem2
+2025-09-14T16:26:59.983394718Z ==> Checking out commit fd0b060153ac0cdb8b79872bfe6b6245d3d35038 in branch main
+2025-09-14T16:27:01.486875224Z ==> Installing dependencies with npm...
+2025-09-14T16:27:01.653280914Z ==> Using Node.js version 22.16.0 (default)
+2025-09-14T16:27:01.702640257Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2025-09-14T16:27:20.300892336Z 
+2025-09-14T16:27:20.300933056Z added 482 packages, and audited 483 packages in 16s
+2025-09-14T16:27:20.300947977Z 
+2025-09-14T16:27:20.300954807Z 65 packages are looking for funding
+2025-09-14T16:27:20.301070988Z   run `npm fund` for details
+2025-09-14T16:27:20.352350162Z 
+2025-09-14T16:27:20.352397752Z 10 vulnerabilities (3 low, 7 moderate)
+2025-09-14T16:27:20.352405742Z 
+2025-09-14T16:27:20.352413522Z To address issues that do not require attention, run:
+2025-09-14T16:27:20.352420162Z   npm audit fix
+2025-09-14T16:27:20.352425833Z 
+2025-09-14T16:27:20.352431003Z To address all issues (including breaking changes), run:
+2025-09-14T16:27:20.352436663Z   npm audit fix --force
+2025-09-14T16:27:20.352441503Z 
+2025-09-14T16:27:20.352447073Z Run `npm audit` for details.
+2025-09-14T16:27:22.635236432Z 
+2025-09-14T16:27:22.635282533Z up to date, audited 483 packages in 2s
+2025-09-14T16:27:22.635301143Z 
+2025-09-14T16:27:22.635327923Z 65 packages are looking for funding
+2025-09-14T16:27:22.635335773Z   run `npm fund` for details
+2025-09-14T16:27:22.6823415Z 
+2025-09-14T16:27:22.68238682Z 10 vulnerabilities (3 low, 7 moderate)
+2025-09-14T16:27:22.682394451Z 
+2025-09-14T16:27:22.682401441Z To address issues that do not require attention, run:
+2025-09-14T16:27:22.682407711Z   npm audit fix
+2025-09-14T16:27:22.682413511Z 
+2025-09-14T16:27:22.682419011Z To address all issues (including breaking changes), run:
+2025-09-14T16:27:22.682426171Z   npm audit fix --force
+2025-09-14T16:27:22.682431251Z 
+2025-09-14T16:27:22.682436541Z Run `npm audit` for details.
+2025-09-14T16:27:22.744694796Z ==> Running build command 'npx vite build'...
+2025-09-14T16:27:24.158570101Z vite v5.4.19 building for production...
+2025-09-14T16:27:24.214509416Z ✓ 0 modules transformed.
+2025-09-14T16:27:24.217381017Z x Build failed in 15ms
+2025-09-14T16:27:24.217439108Z error during build:
+2025-09-14T16:27:24.217480318Z Could not resolve entry module "client/index.html".
+2025-09-14T16:27:24.217491778Z     at getRollupError (file:///opt/render/project/src/node_modules/rollup/dist/es/shared/parseAst.js:396:41)
+2025-09-14T16:27:24.217497978Z     at error (file:///opt/render/project/src/node_modules/rollup/dist/es/shared/parseAst.js:392:42)
+2025-09-14T16:27:24.217504729Z     at ModuleLoader.loadEntryModule (file:///opt/render/project/src/node_modules/rollup/dist/es/shared/node-entry.js:20086:20)
+2025-09-14T16:27:24.217530239Z     at async Promise.all (index 0)
+2025-09-14T16:27:24.372319871Z ==> Build failed 😞
+2025-09-14T16:27:24.372350131Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys

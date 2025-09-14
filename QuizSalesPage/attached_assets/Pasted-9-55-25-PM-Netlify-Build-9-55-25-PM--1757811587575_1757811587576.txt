@@ -1,0 +1,66 @@
+9:55:25 PM: Netlify Build                                                 
+9:55:25 PM: ────────────────────────────────────────────────────────────────
+9:55:25 PM: ​
+9:55:25 PM: ❯ Version
+9:55:25 PM:   @netlify/build 35.1.6
+9:55:25 PM: ​
+9:55:25 PM: ❯ Flags
+9:55:25 PM:   accountId: 68c5e64a71f9c361f02f8742
+9:55:25 PM:   baseRelDir: true
+9:55:25 PM:   buildId: 68c612606f867770ec5ab7aa
+9:55:25 PM:   deployId: 68c612606f867770ec5ab7ac
+9:55:25 PM: ​
+9:55:25 PM: ❯ Current directory
+9:55:25 PM:   /opt/build/repo
+9:55:25 PM: ​
+9:55:25 PM: ❯ Config file
+9:55:25 PM:   /opt/build/repo/netlify.toml
+9:55:25 PM: ​
+9:55:25 PM: ❯ Context
+9:55:25 PM:   production
+9:55:25 PM: ​
+9:55:25 PM: build.command from netlify.toml                               
+9:55:25 PM: ────────────────────────────────────────────────────────────────
+9:55:25 PM: ​
+9:55:25 PM: $ npm run build
+9:55:26 PM: > quiz-ebook-frontend@1.0.0 build
+9:55:26 PM: > vite build
+9:55:26 PM: vite v5.4.20 building for production...
+9:55:26 PM: transforming...
+9:55:26 PM: ✓ 2 modules transformed.
+9:55:26 PM: x Build failed in 200ms
+9:55:26 PM: error during build:
+9:55:26 PM: Could not resolve "./src/main.tsx" from "index.html"
+9:55:26 PM: file: /opt/build/repo/index.html
+9:55:26 PM:     at getRollupError (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+9:55:26 PM:     at error (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+9:55:26 PM:     at ModuleLoader.handleInvalidResolvedId (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21539:24)
+9:55:26 PM:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21499:26
+9:55:26 PM: ​
+9:55:26 PM: "build.command" failed                                        
+9:55:26 PM: ────────────────────────────────────────────────────────────────
+9:55:26 PM: ​
+9:55:26 PM:   Error message
+9:55:26 PM:   Command failed with exit code 1: npm run build (https://ntl.fyi/exit-code-1)
+9:55:26 PM: ​
+9:55:26 PM:   Error location
+9:55:26 PM:   In build.command from netlify.toml:
+9:55:26 PM:   npm run build
+9:55:26 PM: ​
+9:55:26 PM:   Resolved config
+9:55:26 PM:   build:
+9:55:26 PM:     command: npm run build
+9:55:26 PM:     commandOrigin: config
+9:55:26 PM:     environment:
+9:55:26 PM:       - NODE_VERSION
+9:55:26 PM:     publish: /opt/build/repo/dist
+9:55:26 PM:     publishOrigin: config
+9:55:26 PM:   redirects:
+9:55:27 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+9:55:27 PM:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+9:55:27 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+9:55:27 PM: Failing build: Failed to build site
+9:55:27 PM: Finished processing build request in 29.488s

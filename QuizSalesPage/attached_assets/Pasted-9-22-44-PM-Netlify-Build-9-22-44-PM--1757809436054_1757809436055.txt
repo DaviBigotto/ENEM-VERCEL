@@ -1,0 +1,72 @@
+9:22:44 PM: Netlify Build                                                 
+9:22:44 PM: ────────────────────────────────────────────────────────────────
+9:22:44 PM: ​
+9:22:44 PM: ❯ Version
+9:22:44 PM:   @netlify/build 35.1.6
+9:22:44 PM: ​
+9:22:44 PM: ❯ Flags
+9:22:44 PM:   accountId: 68c5e64a71f9c361f02f8742
+9:22:44 PM:   baseRelDir: true
+9:22:44 PM:   buildId: 68c60ab77f38893a8f82d70c
+9:22:44 PM:   deployId: 68c60ab77f38893a8f82d70e
+9:22:44 PM: ​
+9:22:44 PM: ❯ Current directory
+9:22:44 PM:   /opt/build/repo
+9:22:44 PM: ​
+9:22:44 PM: ❯ Config file
+9:22:44 PM:   /opt/build/repo/netlify.toml
+9:22:44 PM: ​
+9:22:44 PM: ❯ Context
+9:22:44 PM:   production
+9:22:44 PM: ​
+9:22:44 PM: build.command from netlify.toml                               
+9:22:44 PM: ────────────────────────────────────────────────────────────────
+9:22:44 PM: ​
+9:22:44 PM: $ npm run build
+9:22:44 PM: > quiz-ebook-frontend@1.0.0 build
+9:22:44 PM: > vite build
+9:22:45 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+9:22:45 PM: vite v5.4.20 building for production...
+9:22:45 PM: transforming...
+9:22:45 PM: ✓ 2 modules transformed.
+9:22:45 PM: x Build failed in 245ms
+9:22:45 PM: error during build:
+9:22:45 PM: [vite]: Rollup failed to resolve import "/src/main.tsx" from "/opt/build/repo/index.html".
+9:22:45 PM: This is most likely unintended because it can break your application at runtime.
+9:22:45 PM: If you do want to externalize this module explicitly add it to
+9:22:45 PM: `build.rollupOptions.external`
+9:22:45 PM:     at viteWarn (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65854:17)
+9:22:45 PM:     at onwarn (file:///opt/build/repo/node_modules/@vitejs/plugin-react/dist/index.js:90:7)
+9:22:45 PM:     at onRollupWarning (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65884:5)
+9:22:45 PM:     at onwarn (file:///opt/build/repo/node_modules/vite/dist/node/chunks/dep-D_zLpgQd.js:65549:7)
+9:22:45 PM:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20925:13
+9:22:45 PM:     at Object.logger [as onLog] (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:22797:9)
+9:22:45 PM:     at ModuleLoader.handleInvalidResolvedId (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21541:26)
+9:22:45 PM:     at file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:21499:26
+9:22:45 PM: ​
+9:22:45 PM: "build.command" failed                                        
+9:22:45 PM: ────────────────────────────────────────────────────────────────
+9:22:45 PM: ​
+9:22:45 PM:   Error message
+9:22:45 PM:   Command failed with exit code 1: npm run build (https://ntl.fyi/exit-code-1)
+9:22:45 PM: ​
+9:22:45 PM:   Error location
+9:22:45 PM:   In build.command from netlify.toml:
+9:22:45 PM:   npm run build
+9:22:45 PM: ​
+9:22:45 PM:   Resolved config
+9:22:45 PM:   build:
+9:22:45 PM:     command: npm run build
+9:22:45 PM:     commandOrigin: config
+9:22:45 PM:     environment:
+9:22:45 PM:       - NODE_VERSION
+9:22:45 PM:     publish: /opt/build/repo/dist
+9:22:45 PM:     publishOrigin: config
+9:22:45 PM:   redirects:
+9:22:45 PM:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+9:22:45 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+9:22:45 PM: Failing build: Failed to build site
+9:22:46 PM: Finished processing build request in 29.759s
