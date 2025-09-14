@@ -129,7 +129,7 @@ export default function Quiz() {
   const handlePurchase = () => {
     trackPurchase();
     // Redireciona para seu link de venda (Hotmart, etc.)
-    const checkoutWindow = window.open('https://go.hotmart.com/SEU_LINK_AQUI', '_blank', 'noopener,noreferrer');
+    const checkoutWindow = window.open('https://pay.kirvano.com/b77691e3-1879-4f05-851b-d2769adc8c58', '_blank', 'noopener,noreferrer');
     if (checkoutWindow) {
       checkoutWindow.opener = null;
     }
